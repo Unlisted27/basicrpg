@@ -17,7 +17,7 @@ I started learning to code in grade 1 or 2 with scratch. I loved making games an
 After writing all that, I forgot what a README is suposed to have, so i'll put what's on my mind here
 -I really need some neat ascii art in some part of this project, like that would be absolutly sick
 -Better do real README stuff, tommorow tho, it's too late. 
--Oh ya, find bugs, DM me \n
+-Oh ya, find bugs, DM me
 -also like and subscribe, or whatever GitHub has
 
 ### Contact me
