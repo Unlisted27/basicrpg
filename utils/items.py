@@ -1,4 +1,4 @@
-#WHoa! Look at you! Your going into the code WITHIN THE COD!!! NO WAY! Congrats on getting here if you're a noob, I wouldnt have understood what this was like 2 days ago TBH
+#Whoa! Look at you! Your going into the code WITHIN THE COD!!! NO WAY! Congrats on getting here if you're a noob, I wouldnt have understood what this was like 2 days ago TBH
 #If you want to take the extra leap to make your own item type, make sure that has at minimum the following properties:
 #self,name,weight,description,is_pickable,item_type
 

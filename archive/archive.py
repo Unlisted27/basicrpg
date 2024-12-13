@@ -1,13 +1,8 @@
-#imports
-from utils import components #Imports the main juicy of this thing. Components are all of the custom objects that I've made
-from utils import generators #Generators. This is a bunch of generator functions for different things. They will be pretty self descriptive
-from starter_pack import starter_pack
+#This is where old code goes to die
+#Lol for real tho, I put everything that I made and worked at somepoint but dont wanna put in the final project, here. This could be for a number of reasons.
+#BE WARNED! Some code here has the possibility to just not work, infact it is likely to not work because it's old or just never worked so I trashed it.
 import random
-#OBJECTS
-
-#lists
-
-#other
+#Put this here cause it didn't fit with how I wanted to structure my project. Also I think there are some things that just dont work, cant rly remember tho.
 class combat: #UNUSED
     def __init__(self,fighter_1,fighter_2):
         self.fighter_1 = fighter_1
@@ -49,12 +44,3 @@ class combat: #UNUSED
             self.fighter_1 = self.fighter_2
             self.fighter_2 = placeholder
             input("[PRESS ENTER TO PROGRESS]")
-
-#COMMANDS Ok im too fuckin tired to deal with this. Just need error handling mainly
-#SCRE THIS SHIT. IM REWORKING THIS GAMES ENTIRE CMDS THINGY AND INPUT SYSTEM
-#print(player.name) 
-print("welcome, player!")
-starter_pack.characters.player.create_random()
-starter_pack.characters.player.printstats()
-starter_pack.characters.player.aquire(starter_pack.items.foods.bread)
-starter_pack.characters.player.printinvent()

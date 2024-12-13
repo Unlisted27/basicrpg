@@ -14,8 +14,5 @@ class items():
     class foods():
         bread = item.food("Bread",0.2,"It's just bread",1)
 class characters():
-    player = components.character(races.human,professions.commoner,generators.genname())
-    player.create_random()
-    goblin = components.character(races.goblin,professions.commoner,generators.genname())
-    goblin.create_random()
-print(f"HERE!!!!!!{type(items.foods.bread)}")
+    player = components.character(races.human,professions.commoner,generators.genname())#Basic character creation. To see behind the screens of what goes into a character object, check out utils/components.py character
+    goblin = components.character(races.goblin,professions.commoner,generators.genname())#Sane as top, but race is set as goblin
