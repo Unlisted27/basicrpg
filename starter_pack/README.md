@@ -12,6 +12,9 @@ IG this doesent apply for many of you, but I encourage you to take a look at my 
 ### -Examples
 An example file is provided in this repo, play it, read the code, learn it. It uses the starter_pack for everything in the game.
 
+### -NOTES
+-Weight is in pounds
+
 # Help me out
 Full documentation maybe coming soon? 
 Please comment, or star, or whatever github has?

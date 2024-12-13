@@ -1,4 +1,6 @@
 import random
+import utils.errors
+import utils.items
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
     name_start_parts = [
@@ -92,8 +94,12 @@ class character(): #Can be any character within the game. Everything from a side
         self.agility = agility + self.race.agility_modifier
         self.armor_class = armor_class
         self.health = health + self.race.constitution_modifier
-        #other
+        
+        #Inventory vars
         self.inventory = []
+        self.max_weight = self.strength * 15
+        self.current_weight = 0
+        self.equiped_weapon = None
     def create_random(self):
         self.strength = random.randint(5,20) + self.race.strength_modifier
         self.constitution = random.randint(5,20) + self.race.constitution_modifier
@@ -116,29 +122,54 @@ class character(): #Can be any character within the game. Everything from a side
         print("|~~~~~~~~~~~~~~~~~~~")
         print()
 
-    def printinvent(self):
-        print("|INVENTORY|")
-        print("|~~~~~~~~~~~~~~~~~~~")
-        for item in self.inventory:
-            print("|"+item.name) 
-        print("|~~~~~~~~~~~~~~~~~~~")
-        print()
-
     #World interaction
     #These are all things that a character can use to interact with the world (Ex: Picking something up (aquire) or attacking (attack))
-    def attack(self,target):
-        roll = random.randint(1,20)#roll for hit
-        if roll > target.armor_class:
-            print("Hit!")
-            target.health -= 1
+    def printinvent(self):
+                print("|INVENTORY|")
+                print("|~~~~~~~~~~~~~~~~~~~")
+                total_weight = sum(item.weight for item in self.inventory) #This adds up all of the items weights in the inventory.
+                print(f"|WEIGHT: {total_weight}/{self.max_weight}lbs")
+                print("|~~~~~~~~~~~~~~~~~~~")
+                for item in self.inventory:
+                    print(f"|{round(item.weight,2):>4}|{item.name}") #Prints weight | name. Round weight to a maximum of 2 decimal places, ensures that | will always be alligned using the :>4
+                print("|~~~~~~~~~~~~~~~~~~~")
+                print()
+    def equip_weapon(self,weapon,from_invent = False): #Equip a weapon to the weapon slot. Attack will only reference an equiped weapon. IF YOU WANT TO EQUIP A WEAPON FROM THE INVENTORY, MAKE SURE YOU SET from_invent TO TRUE. This will not remove the weapon from the inventory, it simply references it in the equiped_weapon variable
+        """equips a weapon. Only equiped weapons can do damage.\n
+        -----
+        to equip a weapon from the inventory, set from_invent to true. \n
+        For more info, see utils/components.py character.equip_weapon()"""
+        if isinstance(weapon,utils.items.weapon):
+            if from_invent:
+                if weapon in self.inventory:
+                    self.equiped_weapon = weapon
+                    print(f"EQUIPED {weapon.name}")
+                else:
+                    raise 
+            else:
+                self.equiped_weapon = weapon
+                print(f"EQUIPED {weapon.name}")
         else:
-            print("Miss!")
+            raise TypeError(f"Expected type 'weapon' but got '{type(weapon.__name__)}' instead")#Raises an error if a weapon object is not in the paramaters. This is because the script will need to reference properties of a weapon object later on, and we dont want having bread equiped as your weapon to raise errors far down the line.
+    def attack(self,target):
+        """attack target. Rolls to hit, on hit deals damage.\n
+        -----
+        See comments for more info on damage delt. Still under heavy development"""
+        if isinstance(target,character): #Check if the target has the proper capabilities to be attacked. We do this because non character objects may not have an armor_class or health.
+            roll = random.randint(1,20)#roll for hit
+            if roll > target.armor_class:
+                print("Hit!")
+                target.health -= 1 #THIS NEEDS TO BE MODIFIED FOR PROPER COMBAT
+            else:
+                print("Miss!")
+        else:
+            raise TypeError(f"Expected type 'character' but got '{type(target.__name__)}' instead") #Raise type error if target is not a character object
     def aquire(self,target): #This allows a character to pick something up
         """'Pick up' target, put in inventory. target must have the property 'is_pickable'\n
         --------  
         see comments in utils/components for more"""
         if hasattr(target,"is_pickable"): #Check if the target is able to be picked up, basically making sure its an item. See utils/items and you will find that each item has an is_pickable property
-            print(f"YOU HAVE AQUIRED: {target.name}, OF TYPE: {target.item_type}")
+            print(f"YOU HAVE AQUIRED: {target.name} TYPE: {target.item_type}")
             self.inventory.append(target)
         else:
             #raise is a way to show an error message. Its not necessary, but makes alot of code handling nicer because you can have a custom error rather than what python thinks could be an error.

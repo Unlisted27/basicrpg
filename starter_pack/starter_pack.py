@@ -15,4 +15,4 @@ class items():
         bread = item.food("Bread",0.2,"It's just bread",1)
 class characters():
     player = components.character(races.human,professions.commoner,generators.genname())#Basic character creation. To see behind the screens of what goes into a character object, check out utils/components.py character
-    goblin = components.character(races.goblin,professions.commoner,generators.genname())#Sane as top, but race is set as goblin
+    goblin1 = components.character(races.goblin,professions.commoner,generators.genname())#Sane as top, but race is set as goblin
