@@ -1,1 +1,2 @@
 __pycache__/
+#If your wondering, a .gitignore is a file that instructs the github 'uploader' to exclude uploading certain files. I want it to ignore the pycache file as pycache is an auto generated compiled file that is un-needed in a repository.

@@ -1,3 +1,5 @@
+import random
+#Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
     name_start_parts = [
     'Ada', 'Adel', 'Adri', 'Agn', 'Alf', 'Ale', 'Ali', 'Alma', 'Alo', 'Alv', 'Ama', 'Amb', 'Ana', 'And', 'Ang', 'Ann', 
@@ -45,4 +47,100 @@ class name_parts():
         'sa', 'san', 'sel', 'son', 'ston', 'ta', 'tan', 'tha', 'ther', 'thia', 'tia', 'tin', 'ton', 'uel', 'us', 'va', 'ver', 
         'vin', 'ward', 'wen', 'win', 'wyn', 'ya', 'yah', 'zar', 'zo'
     ]
-#Github test line
+
+class race():
+    def __init__(self,name,strength_modifier,constitution_modifier,intelligence_modifier,agility_modifier):
+        self.name = name
+        self.strength_modifier = strength_modifier
+        self.constitution_modifier = constitution_modifier
+        self.intelligence_modifier = intelligence_modifier
+        self.agility_modifier = agility_modifier
+    def genrace(name):
+            print("GENRACE COMING SOON")
+class profession():
+    def __init__(self,name):
+        self.name = name
+class map: #UNUSED
+    def __init__(self,name):
+        self.name = name
+    class nation:
+        def __init__(self,name,ruler):
+            self.name = name
+            self.ruler = ruler
+    class land:
+        def __init__(self,name,ruler):
+            self.name = name
+            self.ruler = ruler
+    class citie:
+        def __init__(self,city_name,city_ruler):
+            self.city_name = city_name
+            self.city_ruler = city_ruler
+    class town:
+        def __init__(self,town_name,town_ruler):
+            self.town_name = town_name
+            self.town_ruler = town_ruler
+class character(): #Can be any character within the game. Everything from a side character who you meet at a lonely crossroads, to the player themselves
+    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,health = 10):
+        self.race = race
+        self.profession = profession
+        self.name = name
+        self.initiative = initiative
+        #stats
+        self.strength = strength + self.race.strength_modifier
+        self.constitution = constitution + self.race.constitution_modifier
+        self.intelligence = intelligence + self.race.intelligence_modifier
+        self.agility = agility + self.race.agility_modifier
+        self.armor_class = armor_class
+        self.health = health + self.race.constitution_modifier
+        #other
+        self.inventory = []
+    def create_random(self):
+        self.strength = random.randint(5,20) + self.race.strength_modifier
+        self.constitution = random.randint(5,20) + self.race.constitution_modifier
+        self.intelligence = random.randint(5,20) + self.race.intelligence_modifier
+        self.agility = random.randint(5,20) + self.race.agility_modifier
+        self.armor_class = random.randint(3,5) + self.race.agility_modifier
+        self.health = random.randint(5,15) + self.race.constitution_modifier
+    def printstats(self):
+        print("|~~~~~~~~~~~~~~~~~~~")
+        print("|Name: " + self.name)
+        print("|Race: " + self.race.name)
+        print("|Profession: " + self.profession.name)
+        print("|==STATS==")
+        print("|Strength: " + str(self.strength) + " (" + str(self.race.strength_modifier) + ")")
+        print("|Constitution: " + str(self.constitution) + " (" + str(self.race.constitution_modifier) + ")")
+        print("|Intelligence: " + str(self.intelligence) + " (" + str(self.race.intelligence_modifier) + ")")
+        print("|Agility: " + str(self.agility) + " (" + str(self.race.agility_modifier) + ")")
+        print("|Armor class: " + str(self.armor_class))
+        print("|HEALTH: "+str(self.health))
+        print("|~~~~~~~~~~~~~~~~~~~")
+        print()
+
+    def printinvent(self):
+        print("|INVENTORY|")
+        print("|~~~~~~~~~~~~~~~~~~~")
+        for item in self.inventory:
+            print("|"+item.name) 
+        print("|~~~~~~~~~~~~~~~~~~~")
+        print()
+
+    #World interaction
+    #These are all things that a character can use to interact with the world (Ex: Picking something up (aquire) or attacking (attack))
+    def attack(self,target):
+        roll = random.randint(1,20)#roll for hit
+        if roll > target.armor_class:
+            print("Hit!")
+            target.health -= 1
+        else:
+            print("Miss!")
+    def aquire(self,target): #This allows a character to pick something up
+        """'Pick up' target, put in inventory. target must have the property 'is_pickable'\n
+        --------  
+        see comments in utils/components for more"""
+        if hasattr(target,"is_pickable"): #Check if the target is able to be picked up, basically making sure its an item. See utils/items and you will find that each item has an is_pickable property
+            print(f"YOU HAVE AQUIRED: {target.name}, OF TYPE: {target.item_type}")
+            self.inventory.append(target)
+        else:
+            #raise is a way to show an error message. Its not necessary, but makes alot of code handling nicer because you can have a custom error rather than what python thinks could be an error.
+            raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
+            #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
