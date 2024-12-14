@@ -13,7 +13,7 @@ class professions():
 class items():
     class weapons():
         #Note, i have provided variables (name=, etc) just for your understanding. They are not required.
-        short_sword = item.weapon(name="short sword",weight=2,description="A short blade, powerful none the less",attack_dice=(1,6)) #Creates a short sword that does 1d6 damage. Meaning that on hit, the game will 'roll' 1, 6 sided 'dice', basicaly generating 1 random number between 1-6. 
+        short_sword = item.weapon(name="short sword",weight=2,description="A short blade, powerful none the less",attack_dice=(1,6),base_damage=2) #Creates a short sword that does 1d6 damage. Meaning that on hit, the game will 'roll' 1, 6 sided 'dice', basicaly generating 1 random number between 1-6. 
     class foods():
         bread = item.food("Bread",0.2,"It's just bread",1)
 class characters():

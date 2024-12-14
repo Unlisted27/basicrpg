@@ -1,5 +1,5 @@
 import random
-import utils.errors
+from utils.errors import itemNotFoundError
 import utils.items
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
@@ -57,8 +57,6 @@ class race():
         self.constitution_modifier = constitution_modifier
         self.intelligence_modifier = intelligence_modifier
         self.agility_modifier = agility_modifier
-    def genrace(name):
-            print("GENRACE COMING SOON")
 class profession():
     def __init__(self,name):
         self.name = name
@@ -73,7 +71,7 @@ class map: #UNUSED
         def __init__(self,name,ruler):
             self.name = name
             self.ruler = ruler
-    class citie:
+    class city:
         def __init__(self,city_name,city_ruler):
             self.city_name = city_name
             self.city_ruler = city_ruler
@@ -128,6 +126,8 @@ class character(): #Can be any character within the game. Everything from a side
     def printinvent(self):
                 print("|INVENTORY|")
                 print("|~~~~~~~~~~~~~~~~~~~")
+                print(f"|EQUIPED: {self.equiped_weapon.name}")
+                print("|~~~~~~~~~~~~~~~~~~~")
                 total_weight = sum(item.weight for item in self.inventory) #This adds up all of the items weights in the inventory.
                 print(f"|WEIGHT: {total_weight}/{self.max_weight}lbs")
                 print("|~~~~~~~~~~~~~~~~~~~")
@@ -146,7 +146,7 @@ class character(): #Can be any character within the game. Everything from a side
                     self.equiped_weapon = weapon
                     print(f"EQUIPED {weapon.name}")
                 else:
-                    raise 
+                    raise itemNotFoundError("Item not found in inventory even though from_invent is set to True")
             else:
                 self.equiped_weapon = weapon
                 print(f"EQUIPED {weapon.name}")
@@ -160,7 +160,10 @@ class character(): #Can be any character within the game. Everything from a side
             roll = random.randint(1,20)#roll for hit
             if roll > target.armor_class:
                 print("Hit!")
-                target.health -= 1 #THIS NEEDS TO BE MODIFIED FOR PROPER COMBAT
+                if self.equiped_weapon:
+                    target.health -= self.equiped_weapon.attack_role()
+                else:
+                    target.health -= 1 #Perform a punch
             else:
                 print("Miss!")
         else:

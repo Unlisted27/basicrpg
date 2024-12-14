@@ -12,5 +12,13 @@ starter_pack.characters.player.create_random() #randomizes the atributes of the 
 starter_pack.characters.player.printstats() #calls the printstats function. This function can be called on any character object. For more see utils/components.py character.
 input()
 starter_pack.characters.player.aquire(starter_pack.items.foods.bread) #uses the aquire function of the premade player character to pick up the premade bread. Both player and bread located in starter_pack. For more creating items and characters, see starter_pack/starter_pack.py characters and items. For more behind the scenes, check out utils/components character and item.
+starter_pack.characters.player.aquire(starter_pack.items.weapons.short_sword)
+starter_pack.characters.player.equip_weapon(starter_pack.items.weapons.short_sword,True)
 input()
 starter_pack.characters.player.printinvent() #Prints the player inventory. printinvent can be called on any character object. See utils/components.py charater for more.
+input()
+starter_pack.characters.goblin1.create_random()
+starter_pack.characters.goblin1.printstats()
+input("ATTACK THE GOBLIN")
+starter_pack.characters.player.attack(starter_pack.characters.goblin1)
+starter_pack.characters.goblin1.printstats()
