@@ -22,3 +22,4 @@ starter_pack.characters.goblin1.printstats()
 input("ATTACK THE GOBLIN")
 starter_pack.characters.player.attack(starter_pack.characters.goblin1)
 starter_pack.characters.goblin1.printstats()
+
