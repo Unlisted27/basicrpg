@@ -2,7 +2,7 @@ Where things go to be developed
 
 ### inventory
     •Add maximum weight
-        ~~-Strength x 15 = maximum weight (lbs)~~
+        ~~ -Strength x 15 = maximum weight (lbs) ~~
         -Backpack gives bonus
     •Weapon slot
         -Equiped weapon goes here
