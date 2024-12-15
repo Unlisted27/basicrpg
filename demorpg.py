@@ -17,9 +17,9 @@ starter_pack.characters.player.equip_weapon(starter_pack.items.weapons.short_swo
 input()
 starter_pack.characters.player.printinvent() #Prints the player inventory. printinvent can be called on any character object. See utils/components.py charater for more.
 input()
-starter_pack.characters.goblin1.create_random()
-starter_pack.characters.goblin1.printstats()
+starter_pack.characters.gnarwl.create_random()
+starter_pack.characters.gnarwl.printstats()
 input("ATTACK THE GOBLIN")
-starter_pack.characters.player.attack(starter_pack.characters.goblin1)
-starter_pack.characters.goblin1.printstats()
+starter_pack.characters.player.attack(starter_pack.characters.gnarwl)
+starter_pack.characters.gnarwl.printstats()
 
