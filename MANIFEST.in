@@ -1,0 +1,6 @@
+# Include necessary files
+include README.md
+include LICENSE
+
+# Include the utils directory
+recursive-include utils *
