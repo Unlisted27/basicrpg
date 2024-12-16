@@ -3,7 +3,7 @@
 /build/
 
 # Ignore egg-info directories
-*basicrpg.egg-info/
+/basicrpg.egg-info/
 
 # Ignore the MANIFEST file
 MANIFEST
