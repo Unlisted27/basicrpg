@@ -1,5 +1,5 @@
 import random
-from errors import itemNotFoundError
+from basicrpg.errors import itemNotFoundError
 import items
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
