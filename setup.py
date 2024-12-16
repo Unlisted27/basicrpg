@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="basicrpg",
-    version="0.0.8",
+    version="0.0.10",
     description="Python library for making RPG games, clean and easy.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

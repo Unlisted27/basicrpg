@@ -1,6 +1,6 @@
 import random
 from basicrpg.errors import itemNotFoundError
-import items
+from basicrpg import items
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
     name_start_parts = [
@@ -125,8 +125,9 @@ class character(): #Can be any character within the game. Everything from a side
     #These are all things that a character can use to interact with the world (Ex: Picking something up (aquire) or attacking (attack))
     def printinvent(self):
                 print("|INVENTORY|")
-                print("|~~~~~~~~~~~~~~~~~~~")
-                print(f"|EQUIPED: {self.equiped_weapon.name}")
+                if self.equiped_weapon:
+                    print("|~~~~~~~~~~~~~~~~~~~")
+                    print(f"|EQUIPED: {self.equiped_weapon.name}")
                 print("|~~~~~~~~~~~~~~~~~~~")
                 total_weight = sum(item.weight for item in self.inventory) #This adds up all of the items weights in the inventory.
                 print(f"|WEIGHT: {total_weight}/{self.max_weight}lbs")

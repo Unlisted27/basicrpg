@@ -1,5 +1,5 @@
 import random
-from components import name_parts
+from basicrpg.components import name_parts
 
 def genname(args="first"):
     length = random.randint(2,3)
