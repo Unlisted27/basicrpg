@@ -19,7 +19,7 @@ Where things go to be developed
 ---  
 # Change Log  
 ---
-## Version 0.0.1 Pre Alpha  
+## Version 0.0.10 Pre Alpha  
 - Kinda forgot everything I added, but i'll try to remember  
 ### Basics
 - all of the most basic functions such as dice rolling. This should use ZERO internal imports in order to avoid feedback loops of other things needing a function here which requires that things code to work.
