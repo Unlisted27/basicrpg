@@ -5,7 +5,7 @@
 #FUTURE PLAN FOR ALL ITEMS! All items will have a use() function. This will simply be what the item does. Example: food will contain code to heal the character. Character will be able to call the use function of any item.
 #On this: ALL INVENTORY CHECKING AND HANDLING WILL BE HANDLED BY THE CHARACTER OBJECT, example: an item use function wil NOT contain code to remove it from a character inventory
 
-from utils import basics
+import basics
 
 class item(): #Unused, just a demo for the minimum requirements of an item object
     def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item"):

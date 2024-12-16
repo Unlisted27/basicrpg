@@ -1,6 +1,6 @@
 import random
-from utils.errors import itemNotFoundError
-import utils.items
+from errors import itemNotFoundError
+import items
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
     name_start_parts = [
@@ -140,7 +140,7 @@ class character(): #Can be any character within the game. Everything from a side
         -----
         to equip a weapon from the inventory, set from_invent to true. \n
         For more info, see utils/components.py character.equip_weapon()"""
-        if isinstance(weapon,utils.items.weapon):
+        if isinstance(weapon,items.weapon):
             if from_invent:
                 if weapon in self.inventory:
                     self.equiped_weapon = weapon
