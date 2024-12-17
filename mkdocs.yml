@@ -1,6 +1,6 @@
 site_name: "basicrpg"
 theme:
-  name: "basicrpg"
+  name: "readthedocs"
 
 nav:
   - Home: index.md
