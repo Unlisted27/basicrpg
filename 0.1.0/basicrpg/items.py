@@ -7,7 +7,7 @@
 
 import basicrpg.basics as basics
 
-class item(): #Unused, just a demo for the minimum requirements of an item object
+class _item(): #Unused, just a demo for the minimum requirements of an item object
     def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item"):
         self.name = name
         self.weight = weight
@@ -27,8 +27,7 @@ class food():
         if hasattr(target,"health"):
             target.health = min(target.health + self.health,target.max_health) #Increase the target's health by the food's health stat, but not exceeding the target's max health.
         else:
-            raise AttributeError("Expected target to have attribute 'health'")
-        
+            raise AttributeError("Expected target to have attribute 'health'")       
 class weapon():
     def __init__(self,name:str,weight:int,description:str,attack_dice:tuple[int,int],base_damage:int,is_pickable=True,item_type = "weapon"):
         """attack_dice: tuple(dice_amount,dice_value) Ex: attack_dice=(2,6) would be 2d6, i.e rolling two, six sided dice"""

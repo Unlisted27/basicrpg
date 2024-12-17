@@ -60,7 +60,7 @@ class race():
 class profession():
     def __init__(self,name):
         self.name = name
-class map: #UNUSED
+class _map: #UNUSED
     def __init__(self,name):
         self.name = name
     class nation:
