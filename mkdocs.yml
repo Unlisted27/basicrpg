@@ -1,0 +1,6 @@
+site_name: "basicrpg"
+theme:
+  name: "basicrpg"
+
+nav:
+  - Home: index.md
