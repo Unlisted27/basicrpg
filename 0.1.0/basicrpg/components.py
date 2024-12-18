@@ -51,7 +51,7 @@ class name_parts():
     ]
 
 class race():
-    def __init__(self,name,strength_modifier,constitution_modifier,intelligence_modifier,agility_modifier):
+    def __init__(self,name:str,strength_modifier:int,constitution_modifier:int,intelligence_modifier:int,agility_modifier:int):
         self.name = name
         self.strength_modifier = strength_modifier
         self.constitution_modifier = constitution_modifier
