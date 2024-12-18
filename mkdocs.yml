@@ -1,6 +1,10 @@
 site_name: "basicrpg"
 theme:
-  name: "readthedocs"
+  name: readthedocs
+  highlightjs: true
+  highlightjs_style: zaibatsu 
+
 
 nav:
   - Home: index.md
+  
