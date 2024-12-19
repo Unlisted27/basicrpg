@@ -1,2 +1,2 @@
 pygments
-highcontrasttheme.py
+.highcontrasttheme.py
