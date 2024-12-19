@@ -3,4 +3,8 @@ theme:
   name: readthedocs
 nav:
   - Home: index.md
-  
+markdown_extensions:
+  - codehilite:
+      pygments_style: highcontrasttheme.py.HighContrastTheme
+extra_css:
+  - custom.css
