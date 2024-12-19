@@ -4,7 +4,7 @@ from pygments.token import Keyword, Name, Comment, String, Error, Number, Operat
 
 class HighContrastTheme(Style):
     """A custom Pygments style inspired by VS Code High Contrast."""
-    background_color = "#000000"
+    background_color = "#ffffff"
     default_style = ""
 
     styles = {
