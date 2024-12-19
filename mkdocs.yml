@@ -5,6 +5,6 @@ nav:
   - Home: index.md
 markdown_extensions:
   - codehilite:
-      pygments_style: highcontrasttheme.py.HighContrastTheme
+      pygments_style: highcontrasttheme.HighContrastTheme
 extra_css:
   - custom.css
