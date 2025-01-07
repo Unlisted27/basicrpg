@@ -132,3 +132,7 @@
                 - player
                 - goblin1
     - For more, see starter_pack/README.md
+
+## Version 0.1.0 Pre Alpha
+Oops, stopped development for like 2 weeks and forgot the improvements, but heres what I remember
+-Changes to weapons: added equiped weapon slot in inventory, improved weapon damage calculations?
