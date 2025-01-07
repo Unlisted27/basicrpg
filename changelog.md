@@ -136,3 +136,6 @@
 ## Version 0.1.0 Pre Alpha
 Oops, stopped development for like 2 weeks and forgot the improvements, but heres what I remember
 -Changes to weapons: added equiped weapon slot in inventory, improved weapon damage calculations?
+
+## Version 0.2.0 Pre Alpha
+Upgraded the character creation, specificaly stats creation, to be simillar to DND 5e (IN PROGRESS)

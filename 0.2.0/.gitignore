@@ -1,0 +1,9 @@
+# Ignore distribution and build directories
+/dist/
+/build/
+
+# Ignore egg-info directories
+/basicrpg.egg-info/
+
+# Ignore the MANIFEST file
+MANIFEST
