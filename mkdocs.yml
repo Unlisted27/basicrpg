@@ -2,7 +2,7 @@ site_name: "basicrpg"
 theme:
   name: readthedocs
 nav:
-  - Home: index.md
+  - Home: documentation.md
 markdown_extensions:
   - codehilite:
       pygments_style: highcontrasttheme.HighContrastTheme
