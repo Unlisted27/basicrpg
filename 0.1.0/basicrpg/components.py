@@ -51,7 +51,7 @@ class name_parts():
     ]
 
 class race():
-    def __init__(self,name,strength_modifier,constitution_modifier,intelligence_modifier,agility_modifier):
+    def __init__(self,name:str,strength_modifier:int,constitution_modifier:int,intelligence_modifier:int,agility_modifier:int):
         self.name = name
         self.strength_modifier = strength_modifier
         self.constitution_modifier = constitution_modifier
@@ -60,7 +60,7 @@ class race():
 class profession():
     def __init__(self,name):
         self.name = name
-class map: #UNUSED
+class _map: #UNUSED
     def __init__(self,name):
         self.name = name
     class nation:
@@ -80,7 +80,7 @@ class map: #UNUSED
             self.town_name = town_name
             self.town_ruler = town_ruler
 class character(): #Can be any character within the game. Everything from a side character who you meet at a lonely crossroads, to the player themselves
-    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10):
+    def __init__(self,race,profession,name:str,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10):
         self.race = race
         self.profession = profession
         self.name = name
