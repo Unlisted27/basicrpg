@@ -1,0 +1,10 @@
+site_name: "basicrpg"
+theme:
+  name: readthedocs
+nav:
+  - Home: documentation.md
+markdown_extensions:
+  - codehilite:
+      pygments_style: highcontrasttheme.HighContrastTheme
+extra_css:
+  - custom.css

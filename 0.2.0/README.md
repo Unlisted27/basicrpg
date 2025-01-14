@@ -2,6 +2,7 @@
 
 # BASICRPG
 Author: Unlisted_dev
+Version: 0.2.0
 
 Welcome to BasicRPG!
 This is a python module for making RPG games, clean and easy.

@@ -1,0 +1,13 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+pre {
+    background-color: #1E1E1E;
+    padding: 10px;
+    border-radius: 5px;
+}
+code {
+    color: #D4D4D4;
+    font-family: Consolas, 'Courier New', monospace;
+}
