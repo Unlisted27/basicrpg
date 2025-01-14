@@ -139,3 +139,5 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 
 ## Version 0.2.0 Pre Alpha
 Upgraded the character creation, specificaly stats creation, to be simillar to DND 5e (IN PROGRESS)
+Added character name to the inventory header
+Changed the URL in setup.py to link to the basicrpglib github

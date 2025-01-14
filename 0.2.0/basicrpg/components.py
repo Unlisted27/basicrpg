@@ -124,7 +124,7 @@ class character(): #Can be any character within the game. Everything from a side
     #World interaction
     #These are all things that a character can use to interact with the world (Ex: Picking something up (aquire) or attacking (attack))
     def printinvent(self):
-                print("|INVENTORY|")
+                print(f"|INVENTORY|{self.name}|")
                 if self.equiped_weapon:
                     print("|~~~~~~~~~~~~~~~~~~~")
                     print(f"|EQUIPED: {self.equiped_weapon.name}")
@@ -180,3 +180,8 @@ class character(): #Can be any character within the game. Everything from a side
             #raise is a way to show an error message. Its not necessary, but makes alot of code handling nicer because you can have a custom error rather than what python thinks could be an error.
             raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
+class shop():
+    def __init__(self,item_value_pairs:dict,linked_character:character = None):
+        self.item_value_pairs = item_value_pairs
+        self.linked_character = linked_character
+        print(self.item_value_pairs)

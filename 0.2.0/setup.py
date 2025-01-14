@@ -8,7 +8,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Unlisted_dev",
     #author_email="your_email@example.com",
-    url="https://github.com/Unlisted27/basicrpg",
+    url="https://github.com/Unlisted27/basicrpglib",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
