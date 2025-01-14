@@ -49,7 +49,6 @@ class name_parts():
         'sa', 'san', 'sel', 'son', 'ston', 'ta', 'tan', 'tha', 'ther', 'thia', 'tia', 'tin', 'ton', 'uel', 'us', 'va', 'ver', 
         'vin', 'ward', 'wen', 'win', 'wyn', 'ya', 'yah', 'zar', 'zo'
     ]
-
 class race():
     def __init__(self,name:str,strength_modifier:int,constitution_modifier:int,intelligence_modifier:int,agility_modifier:int):
         self.name = name
