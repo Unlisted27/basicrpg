@@ -198,5 +198,3 @@ class shop():
                 break
             except Exception:
                 print("Invalid selection")
-
->>>>>>> e58901afecb789020cee9591484af0755f452a3c
