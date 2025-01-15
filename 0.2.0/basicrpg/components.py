@@ -186,5 +186,17 @@ class shop():
         self.linked_character = linked_character
     def printshop(self):
         print(f"|{self.name}|")
-        for item in self.item_value_pairs:
-            print()
+        print("|~~~~~~~~~~~~~~~~~~~")
+        items_list = list(self.item_value_pairs.items())  # Convert dict items to a list
+        for i, (item, price) in enumerate(items_list, start=1):  # Enumerate for indexing
+            print(f"|[{i}]|${price}|{item}")
+        while True:
+            try:
+                selection = int(input("|Selection: ")) - 1  # Convert input to index
+                selected_item = items_list[selection]
+                #Now gotta check if we can afford the item
+                break
+            except Exception:
+                print("Invalid selection")
+
+>>>>>>> e58901afecb789020cee9591484af0755f452a3c
