@@ -187,13 +187,15 @@ class shop():
     def printshop(self):
         print(f"|{self.name}|")
         print("|~~~~~~~~~~~~~~~~~~~")
-        i = 0
-        for item,price in self.item_value_pairs.items():
-            i += 1
+        items_list = list(self.item_value_pairs.items())  # Convert dict items to a list
+        for i, (item, price) in enumerate(items_list, start=1):  # Enumerate for indexing
             print(f"|[{i}]|${price}|{item}")
         while True:
             try:
-                selected = input("|Selection:")
-                
+                selection = int(input("|Selection: ")) - 1  # Convert input to index
+                selected_item = items_list[selection]
+                #Now gotta check if we can afford the item
+                break
             except Exception:
-                pass
+                print("Invalid selection")
+
