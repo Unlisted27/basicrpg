@@ -180,7 +180,20 @@ class character(): #Can be any character within the game. Everything from a side
             raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
 class shop():
-    def __init__(self,item_value_pairs:dict,linked_character:character = None):
+    def __init__(self,item_value_pairs:dict,name="SHOP",linked_character:character = None):
         self.item_value_pairs = item_value_pairs
         self.linked_character = linked_character
-        print(self.item_value_pairs)
+        self.name = name
+    def printshop(self):
+        print(f"|{self.name}|")
+        print("|~~~~~~~~~~~~~~~~~~~")
+        i = 0
+        for item,price in self.item_value_pairs.items():
+            i += 1
+            print(f"|[{i}]|${price}|{item}")
+        while True:
+            try:
+                selected = input("|Selection:")
+                
+            except Exception:
+                pass
