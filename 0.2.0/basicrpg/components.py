@@ -79,7 +79,7 @@ class _map: #UNUSED
             self.town_name = town_name
             self.town_ruler = town_ruler
 class character(): #Can be any character within the game. Everything from a side character who you meet at a lonely crossroads, to the player themselves
-    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10):
+    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10,money = 0):
         self.race = race
         self.profession = profession
         self.name = name
@@ -92,7 +92,7 @@ class character(): #Can be any character within the game. Everything from a side
         self.armor_class = armor_class
         self.max_health = max_health + self.race.constitution_modifier
         self.health = max_health
-        
+        self.money = money
         #Inventory vars
         self.inventory = []
         self.max_weight = self.strength * 15
@@ -184,6 +184,8 @@ class shop():
         self.item_value_pairs = item_value_pairs
         self.name = name
         self.linked_character = linked_character
+    def buy(self,customer:character,item):
+        print("BUY COMING SOON")
     def printshop(self):
         print(f"|{self.name}|")
         print("|~~~~~~~~~~~~~~~~~~~")
@@ -194,7 +196,7 @@ class shop():
             try:
                 selection = int(input("|Selection: ")) - 1  # Convert input to index
                 selected_item = items_list[selection]
-                #Now gotta check if we can afford the item
+                # 
                 break
             except Exception:
                 print("Invalid selection")

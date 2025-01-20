@@ -142,3 +142,4 @@ Upgraded the character creation, specificaly stats creation, to be simillar to D
 Added character name to the inventory header
 Changed the URL in setup.py to link to the basicrpglib github
 added shop(IN PROGRESS)
+added money system, just a value assigned to each character
