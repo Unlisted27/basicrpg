@@ -138,8 +138,9 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -Changes to weapons: added equiped weapon slot in inventory, improved weapon damage calculations?
 
 ## Version 0.2.0 Pre Alpha
-Upgraded the character creation, specificaly stats creation, to be simillar to DND 5e (IN PROGRESS)
-Added character name to the inventory header
-Changed the URL in setup.py to link to the basicrpglib github
-added shop(IN PROGRESS)
-added money system, just a value assigned to each character
+-Upgraded the character creation, specificaly stats creation, to be simillar to DND 5e (IN PROGRESS)
+-Added character name to the inventory header
+-Changed the URL in setup.py to link to the basicrpglib github
+-added shop(IN PROGRESS)
+-brought back item objects. I think these will be most used in trade
+-NEW PLAN FOR ALL SHOP RELATED THINGS GOING FORWARD: ITEMS WILL ALL HAVE A VALUE (item,amount) WITH item BEING THE TENDER (such as gold) AND AMOUNT BEING THE AMOUNT OF SAID TENDER

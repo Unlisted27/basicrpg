@@ -7,7 +7,7 @@
 
 import basicrpg.basics as basics
 
-class _item(): #Unused, just a demo for the minimum requirements of an item object
+class item(): #Unused, just a demo for the minimum requirements of an item object
     def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item"):
         self.name = name
         self.weight = weight

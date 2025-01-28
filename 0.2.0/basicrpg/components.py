@@ -79,7 +79,7 @@ class _map: #UNUSED
             self.town_name = town_name
             self.town_ruler = town_ruler
 class character(): #Can be any character within the game. Everything from a side character who you meet at a lonely crossroads, to the player themselves
-    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10,money = 0):
+    def __init__(self,race,profession,name,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10):
         self.race = race
         self.profession = profession
         self.name = name
@@ -92,7 +92,6 @@ class character(): #Can be any character within the game. Everything from a side
         self.armor_class = armor_class
         self.max_health = max_health + self.race.constitution_modifier
         self.health = max_health
-        self.money = money
         #Inventory vars
         self.inventory = []
         self.max_weight = self.strength * 15
@@ -180,13 +179,22 @@ class character(): #Can be any character within the game. Everything from a side
             raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
 class shop():
-    def __init__(self,item_value_pairs:dict,name = "SHOP",linked_character:character = None):
+    """item_value_pairs: {(item:basicrpg.item,name:"thing_name"):price:(item:basicrpg.item,amount:int)}\n
+        ex: {(fur_pelt,"Fur Pelt"):(gold,2) , (apple,"Apple"):(gold,1)}"""
+    def __init__(self,item_value_pairs:dict,name = "SHOP",linked_character:character = None):        
         self.item_value_pairs = item_value_pairs
         self.name = name
         self.linked_character = linked_character
-    def buy(self,customer:character,item):
-        print("BUY COMING SOON")
-    def printshop(self):
+    def buy(self,customer:character,item,price):
+        """price: tuple (item:basicrpg.item,amount:int)"""
+        try:
+            if price[0] in customer.inventory:
+                print("Success!")
+            else: 
+                print("Sorry, you cant afford that")
+        except Exception as e:
+            print(f"ERROR: {e}")
+    def printshop(self,customer=character):
         print(f"|{self.name}|")
         print("|~~~~~~~~~~~~~~~~~~~")
         items_list = list(self.item_value_pairs.items())  # Convert dict items to a list
@@ -196,7 +204,7 @@ class shop():
             try:
                 selection = int(input("|Selection: ")) - 1  # Convert input to index
                 selected_item = items_list[selection]
-                # 
+                self.buy(customer,selection,)
                 break
             except Exception:
                 print("Invalid selection")
