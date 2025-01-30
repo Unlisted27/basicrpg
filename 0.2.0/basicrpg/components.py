@@ -186,14 +186,7 @@ class shop():
         self.name = name
         self.linked_character = linked_character
     def buy(self,customer:character,item,price):
-        """price: tuple (item:basicrpg.item,amount:int)"""
-        try:
-            if price[0] in customer.inventory:
-                print("Success!")
-            else: 
-                print("Sorry, you cant afford that")
-        except Exception as e:
-            print(f"ERROR: {e}")
+        print("BUY COMING SOON")
     def printshop(self,customer=character):
         print(f"|{self.name}|")
         print("|~~~~~~~~~~~~~~~~~~~")
