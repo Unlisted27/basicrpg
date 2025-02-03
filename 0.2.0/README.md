@@ -11,7 +11,7 @@ This is a python module for making RPG games, clean and easy.
 
 ### Begginer friendly.
 My intent for this project was to make it as begginer friendly as possible. While there are some fairly advanced things in here, I try to explain it as much as I can. I encourage you to experiment with the small number of premade assets included in the starter_pack, and then go make your own! Every folder in this project has a README.md that will contain some useful pieces of information. If anything is intimidating to you right now, go through the project and read the READMEs.
-
+ifh;
 ### Current list of objects
 Im not gonna tell you what they do here though, figure that out  
 race  
