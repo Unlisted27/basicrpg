@@ -12,16 +12,16 @@ class item():
         def __init__(self,thing,amount):
             self.amount = amount
             self.thing = thing
-    def __init__(self,name:str,weight:int,description:str,worth:tuple=None,is_pickable=True,item_type = "item"):
+    def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item",worth:tuple=None):
         """value:(thing:basicrpg.item,amount:int)"""
         self.name = name
         self.weight = weight
         self.description = description
         if worth:
-            self.value(worth[0],worth[1])
+            self.worth = self.value(worth[0],worth[1])
+            print(self.worth.thing.name + self.worth.amount)
         self.item_type = item_type
         self.is_pickable = is_pickable
-        print(self.value.thing.name + self.value.amount)
 class food():
     def __init__(self,name:str,weight:int,description:str,health:int,is_pickable=True,item_type = "food"):
         self.name = name
@@ -49,6 +49,5 @@ class weapon():
     def attack_role(self): #We keep this as a function here so that we can add universal things such as 
         damage = self.base_damage + basics.roll(self.attack_dice[0],self.attack_dice[1])
         return (damage)
-    
     def use(self,target): #Standard item use function. This one just displays a nice message
         print(f"You examin {self.name}, it gleams with power")

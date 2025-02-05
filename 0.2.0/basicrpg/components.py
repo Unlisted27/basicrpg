@@ -178,7 +178,7 @@ class character(): #Can be any character within the game. Everything from a side
             #raise is a way to show an error message. Its not necessary, but makes alot of code handling nicer because you can have a custom error rather than what python thinks could be an error.
             raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
-class shop():
+class _shop():
     """item_value_pairs: {(item:basicrpg.item,name:"thing_name"):price:(item:basicrpg.item,amount:int)}\n
         ex: {(fur_pelt,"Fur Pelt"):(gold,2) , (apple,"Apple"):(gold,1)}"""
     def __init__(self,item_value_pairs:dict,name = "SHOP",linked_character:character = None):        
