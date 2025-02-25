@@ -1,6 +1,7 @@
 import random
 from basicrpg.errors import itemNotFoundError
 from basicrpg import items
+from basicrpg import basics
 #Name parts, just 3 massive lists of name parts that can be randomly put together
 class name_parts():
     name_start_parts = [
@@ -201,3 +202,22 @@ class _shop():
                 break
             except Exception:
                 print("Invalid selection")
+class room():
+    def __init__(self,name:str,description:str = None,function = None):
+        self.name = name
+        self.description = description
+        self.function = function
+    def set_exits(self,exits:dict):
+        self.exits = exits
+        self.exit_names = []
+        for exit in self.exits.items():
+            self.exit_names.append(exit[0])
+        #exits.get()
+    def execute(self):
+        if not self.exits:
+            raise ValueError("Exits have not been defined, this is likely because set_exits has not been called on this object")
+        print(f"=={self.name}==")
+        print(self.description)
+        if self.function: self.function()
+        choice = basics.menu("CHOOSE AN OPTION",self.exit_names)
+        self.exits[choice].execute()

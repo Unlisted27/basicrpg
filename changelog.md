@@ -115,7 +115,7 @@
         - use()
             - Standard item use function. This one just displays a nice message
 
-### Starter pack
+### Starter pack (NO LONGER WITHIN THIS REPO)
     - This is a collection of premade objects all centered around a fantasy theme. I encourage you to look at how these were created, maybe experiments a little, and then go make your own! 
     - Curent assets:
         - races
@@ -145,3 +145,16 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 
 --Things I tried--
 -Began work on shop system, not in development for now tho
+
+## Verson 0.2.1 Pre Alpha
+-Added room objects
+    -room(name:str,description:str = None,function = None)
+        -name: a string name of the room, will display at the top when the room is executed
+        -description: The room text, string, will display below name when room is executed
+        -function: (UNTESTED) function will be called when room is executed, None by default cause not needed.
+    -Room objects have 2 functions
+        -set_exits(exits:dict{"exit_name" : exit:basicrpg.room})
+            -Sets the exit or doorway options of the room
+            -Will display options for exiting the room, each option is the exit_name, and the destination is the probided room object
+        -execute()
+            -Will execute the code of the room. This function should only be run on the first room in a sequence of rooms, as travel between rooms should be done with set_exits, which will automatically call execute() on the destination room object that the user has selected. Execute could be neat for teleporting, for example, you could have an event which teleports the player to a new "dungeon" that was not connected to the originating set of rooms by calling exit() on the teleport destination of the "dungeon", maybe the entrance chamber for example.
