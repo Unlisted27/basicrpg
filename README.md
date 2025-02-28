@@ -1,3 +1,6 @@
+# ARCHIVED! PLEASE SEE Unlisted27/basicrpglib FOR THE CURRENT PROJECT
+I archived cause this was the original repo before I turned this project into a library, and it's kinda bad.
+
 "Uuuugggg" -The sound I make when I need to format a new README.md file
 
 # BASICRPG
