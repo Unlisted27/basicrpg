@@ -146,7 +146,7 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 --Things I tried--
 -Began work on shop system, not in development for now tho
 
-## Verson 0.2.1 Pre Alpha
+# Verson 0.2.1 Pre Alpha
 -Added room objects
     -room(name:str,description:str = None,function = None)
         -name: a string name of the room, will display at the top when the room is executed
@@ -158,3 +158,8 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
             -Will display options for exiting the room, each option is the exit_name, and the destination is the probided room object
         -execute()
             -Will execute the code of the room. This function should only be run on the first room in a sequence of rooms, as travel between rooms should be done with set_exits, which will automatically call execute() on the destination room object that the user has selected. Execute could be neat for teleporting, for example, you could have an event which teleports the player to a new "dungeon" that was not connected to the originating set of rooms by calling exit() on the teleport destination of the "dungeon", maybe the entrance chamber for example.
+
+## Version 0.3.0
+-Changed the room.set_exit function to room.set_doors, and changed all references to exit/exits into door/doors.This was done to avoid conflict with the builtin python exit() method.
+
+-Added the room.set_contents({"item_name":item:basicrpg.item}) function. This now allows the room to have contents that the character can interact with.
