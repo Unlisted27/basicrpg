@@ -163,3 +163,5 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -Changed the room.set_exit function to room.set_doors, and changed all references to exit/exits into door/doors.This was done to avoid conflict with the builtin python exit() method.
 
 -Added the room.set_contents({"item_name":item:basicrpg.item}) function. This now allows the room to have contents that the character can interact with.
+
+-Added art folder and cover art ASCII image.
