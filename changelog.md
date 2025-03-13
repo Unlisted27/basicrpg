@@ -165,3 +165,8 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -Added the room.set_contents({"item_name":item:basicrpg.item}) function. This now allows the room to have contents that the character can interact with.
 
 -Added art folder and cover art ASCII image.
+
+## Version 0.3.1
+-Made the gap between rooms more evident. Now when you enter a new room, it should be easier to tell
+-Added clear_screen function in basics
+-Added option to clear screen when entering a new room

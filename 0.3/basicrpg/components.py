@@ -203,10 +203,11 @@ class _shop():
             except Exception:
                 print("Invalid selection")
 class room():
-    def __init__(self,name:str,description:str = None,function = None):
+    def __init__(self,name:str,description:str = None,function = None,clear = False):
         self.name = name
         self.description = description
         self.function = function
+        self.clear = clear
         self.doors = None
         self.contents = None
     def set_doors(self,doors:dict):
@@ -226,6 +227,9 @@ class room():
         """room.execute(entity:character) Runs the room. Automatically called when a room is entered using the build in travel mechanic (the 'doorways') created with set_doors. The character object will be the basis for eveything in the room involving characters, such as aquiring items and inspecting) This should be called on the first room in the game, or first in a sequence of rooms, but it can be called whenever.)"""
         if not self.doors:
             raise ValueError("doors have not been defined, this is likely because set_doors has not been called on this object")
+        if self.clear:
+            basics.clear_screen()
+        print(f"\n=={"="* len(self.name)}==\n")
         print(f"=={self.name}==")
         print(self.description)
         if self.function: self.function()
