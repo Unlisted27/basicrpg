@@ -170,3 +170,11 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -Made the gap between rooms more evident. Now when you enter a new room, it should be easier to tell
 -Added clear_screen function in basics
 -Added option to clear screen when entering a new room
+
+## Version 0.3.2
+-Added the basicrpg.room.set_actions(actions:dict) function
+    -Added custom actions (functions) within rooms
+    -These actions, as well as the default "Inspect" and "Leave" actions will be displayed when the player enters the room
+-Added the nevermind option within default room actions
+-Fixed bug where the itemNotFound error would be called when imported.
+-removed testrpg.py in prep for pypi release

@@ -1,7 +1,7 @@
 # Ignore distribution and build directories
 /dist/
 /build/
-
+/__pycache__/
 # Ignore egg-info directories
 /basicrpg.egg-info/
 
