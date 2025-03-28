@@ -210,18 +210,36 @@ class room():
         self.clear = clear
         self.doors = None
         self.contents = None
+        self.actions = None
+        self.action_names = ["Inspect","Leave"]
+    def set_actions(self,actions:dict):
+        """basicrpg.set_actions(actions:dict{action_name(type:str): action(type:function)})
+        Takes a dict of name function pairs.
+        The actions 'Inspect' and 'Leave' are always included by default
+        -
+        Example:
+        -
+        def say_hello():
+            print("Hello World")
+        room.set_actions({'say hello':say_hello})"""
+        self.actions = actions
+        for action in self.actions:
+            self.action_names.append(action)
+        #self.action_names.append("nevermind")
     def set_doors(self,doors:dict):
         """basicrpg.room.set_doors(doors:dict{door_name(type:str):door(type:room),(AS MANY OF PREVIOUS PAIR AS YOU WANT)})    This must be called AFTER every room object refernced in the doors dictionary argument have been declared, otherwise python will not be able to find the rooms referenced."""
         self.doors = doors
         self.door_names = []
         for door in self.doors.items():
             self.door_names.append(door[0])
+        self.door_names.append("nevermind")
     def set_contents(self,contents:dict):
         """basicrpg.room.set_contents({"item_name":item:basicrpg.item}) Set the contents of the room that the entity passed in the room.execute(entity:character) function can interact with. These should usually be items, but as long as the item has the is_pickable attribute, there should be no errors when the player atempts to aquire them. This could allow you to create trapped items, or really inject any code you want!"""
         self.contents = contents
         self.content_names = []
         for thing in self.contents.items():
             self.content_names.append(thing[0])
+        self.content_names.append("nevermind")
     def execute(self,entity:character):
         self.entity = entity
         """room.execute(entity:character) Runs the room. Automatically called when a room is entered using the build in travel mechanic (the 'doorways') created with set_doors. The character object will be the basis for eveything in the room involving characters, such as aquiring items and inspecting) This should be called on the first room in the game, or first in a sequence of rooms, but it can be called whenever.)"""
@@ -229,17 +247,22 @@ class room():
             raise ValueError("doors have not been defined, this is likely because set_doors has not been called on this object")
         if self.clear:
             basics.clear_screen()
-        print(f"\n=={"="* len(self.name)}==\n")
+        bar_length = "="* len(self.name)
+        print(f"\n=={bar_length}==\n")
         print(f"=={self.name}==")
         print(self.description)
         if self.function: self.function()
         while True:
-            answer = basics.menu("ACTIONS",["Inspect","Leave"])
+            answer = basics.menu("ACTIONS",self.action_names)
             if answer == "Inspect":
                 if self.contents:
-                    thing = basics.menu("CHOOSE AN OPTION",self.content_names)
-                    self.entity.aquire(self.contents[thing])
+                    chosen_thing = basics.menu("SELECT AN ITEM TO AQUIRE",self.content_names)
+                    if chosen_thing != "nevermind":
+                        self.entity.aquire(self.contents[chosen_thing])
                 else: print("There is nothing to see here")
-            if answer == "Leave":
-                choice = basics.menu("CHOOSE AN OPTION",self.door_names)
-                self.doors[choice].execute(self.entity)
+            elif answer == "Leave":
+                choice = basics.menu("CHOOSE A DOOR",self.door_names)
+                if choice != "nevermind":
+                    self.doors[choice].execute(self.entity)
+            elif answer in self.action_names:
+                self.actions[answer]()
