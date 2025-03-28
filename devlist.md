@@ -8,4 +8,4 @@ v0.2.0
 
 v0.3
 
--Gonna add contents (item objects) to rooms
+-Gonna add contents (item objects) to rooms DONE
