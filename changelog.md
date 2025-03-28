@@ -178,3 +178,8 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -Added the nevermind option within default room actions
 -Fixed bug where the itemNotFound error would be called when imported.
 -removed testrpg.py in prep for pypi release
+
+## Version 0.3.3
+-menu function now returns the number selected instead of the string selected, by default
+-Added the return_tuple flag to the menu function to return the string and number in a tuple should the flag be set to true
+-Updated type hints on character objects

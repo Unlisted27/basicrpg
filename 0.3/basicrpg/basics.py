@@ -5,13 +5,17 @@ def roll(dice_amount,dice_value):
     result = sum(random.randint(1,dice_value) for _ in range(dice_amount))
     return(result)
 
-def menu(name:str,options:list,horizontal_sign="_",vertical_sign="|"):
+def menu(name:str,options:list,horizontal_sign="_",vertical_sign="|",return_tuple:bool=False):
     '''Displays a menu of the paramater options.
     -
     Selected option returned as string
     -
     ex: menu("Choose",["a","b","c"]) 
-    --> choice (say the player chose [1] (a), "a" would be returned)'''
+    --> choice (say the player chose [1] (a), 1 (integer) would be returned)
+    
+    -horizontal_sign and vertical_sign are characters that will make up the border of the menu
+    -return_tuple if set to True will return the string selected as well as it's number
+        ex: in the previous example, (1,"a") would be returned'''
     length = 1
     i=1
     items = []
@@ -33,7 +37,10 @@ def menu(name:str,options:list,horizontal_sign="_",vertical_sign="|"):
         try:
             answer = input(f"{vertical_sign}:")
             selected = options[int(answer)-1]
-            return(selected)
+            if return_tuple:
+                return (int(answer),selected)
+            else:
+                return int(answer)
         except Exception as e:
             #print(e) #Uncomment this line to show error message when the user enters an invalid option
             print("Invalid selection, try again")
