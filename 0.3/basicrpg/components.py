@@ -253,15 +253,15 @@ class room():
         print(self.description)
         if self.function: self.function()
         while True:
-            answer = basics.menu("ACTIONS",self.action_names)
+            answer = basics.menu("ACTIONS",self.action_names,return_tuple=True)[1]
             if answer == "Inspect":
                 if self.contents:
-                    chosen_thing = basics.menu("SELECT AN ITEM TO AQUIRE",self.content_names)
+                    chosen_thing = basics.menu("SELECT AN ITEM TO AQUIRE",self.content_names,return_tuple=True)[1]
                     if chosen_thing != "nevermind":
                         self.entity.aquire(self.contents[chosen_thing])
                 else: print("There is nothing to see here")
             elif answer == "Leave":
-                choice = basics.menu("CHOOSE A DOOR",self.door_names)
+                choice = basics.menu("CHOOSE A DOOR",self.door_names,return_tuple=True)[1]
                 if choice != "nevermind":
                     self.doors[choice].execute(self.entity)
             elif answer in self.action_names:

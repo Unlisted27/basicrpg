@@ -183,3 +183,6 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 -menu function now returns the number selected instead of the string selected, by default
 -Added the return_tuple flag to the menu function to return the string and number in a tuple should the flag be set to true
 -Updated type hints on character objects
+
+## Version 0.3.4
+-Atempted to fix bug created by menu changes where the menus in rooms no longer work.
