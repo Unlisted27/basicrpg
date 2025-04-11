@@ -8,20 +8,15 @@
 import basicrpg.basics as basics
 
 class item():
-    class value():
-        def __init__(self,thing,amount):
-            self.amount = amount
-            self.thing = thing
-    def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item",worth:tuple=None):
-        """value:(thing:basicrpg.item,amount:int)"""
+    def __init__(self,name:str,weight:int,description:str,is_pickable=True,item_type = "item"):
+        """Custom item objects. If you are not creating a custom item class,I reccomend keeping item_type as 'item' unless you need it otherwise
+        Want more useful / customiseable items? Create an object that inherits item. See more in the documentation"""
         self.name = name
         self.weight = weight
         self.description = description
-        if worth:
-            self.worth = self.value(worth[0],worth[1])
-            print(self.worth.thing.name + self.worth.amount)
         self.item_type = item_type
         self.is_pickable = is_pickable
+
 class food():
     def __init__(self,name:str,weight:int,description:str,health:int,is_pickable=True,item_type = "food"):
         self.name = name

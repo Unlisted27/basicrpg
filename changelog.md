@@ -186,3 +186,6 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 
 ## Version 0.3.4
 -Atempted to fix bug created by menu changes where the menus in rooms no longer work.
+
+## Version 0.3.5
+-Removed value objects from item objects (this should of happened when shop system was put on hold/abandoned)
