@@ -135,7 +135,7 @@ class character(): #Can be any character within the game. Everything from a side
                     print(f"|{round(item.weight,2):>4}|{item.name}") #Prints weight | name. Round weight to a maximum of 2 decimal places, ensures that | will always be alligned using the :>4
                 print("|~~~~~~~~~~~~~~~~~~~")
                 print()
-    def equip_weapon(self,weapon,from_invent = False): #Equip a weapon to the weapon slot. Attack will only reference an equiped weapon. IF YOU WANT TO EQUIP A WEAPON FROM THE INVENTORY, MAKE SURE YOU SET from_invent TO TRUE. This will not remove the weapon from the inventory, it simply references it in the equiped_weapon variable
+    def equip_weapon(self,weapon,from_invent:bool = False): #Equip a weapon to the weapon slot. Attack will only reference an equiped weapon. IF YOU WANT TO EQUIP A WEAPON FROM THE INVENTORY, MAKE SURE YOU SET from_invent TO TRUE. This will not remove the weapon from the inventory, it simply references it in the equiped_weapon variable
         """equips a weapon. Only equiped weapons can do damage.\n
         -----
         to equip a weapon from the inventory, set from_invent to true. \n
@@ -179,6 +179,11 @@ class character(): #Can be any character within the game. Everything from a side
             #raise is a way to show an error message. Its not necessary, but makes alot of code handling nicer because you can have a custom error rather than what python thinks could be an error.
             raise TypeError(f"Expected type 'item' but got '{type(target).__name__}' instead") 
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
+    def use(self,item:items.item,from_invent:bool = False):
+        if isinstance(item,items.item):
+            if hasattr(item,"use"): #Checking that the item's useable property is True
+                item.use(self)
+        else: print("You can't use that") #raise TypeError(f"Expected type basicrpg.item, but got type {type(item)} instead")
 class _shop():
     """item_value_pairs: {(item:basicrpg.item,name:"thing_name"):price:(item:basicrpg.item,amount:int)}\n
         ex: {(fur_pelt,"Fur Pelt"):(gold,2) , (apple,"Apple"):(gold,1)}"""
