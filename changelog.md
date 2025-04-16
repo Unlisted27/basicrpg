@@ -190,3 +190,4 @@ Oops, stopped development for like 2 weeks and forgot the improvements, but here
 ## Version 0.3.5
 -Removed value objects from item objects (this should of happened when shop system was put on hold/abandoned)
 -Added use(self) function for character objects. This should allow for much more dynamic item objects. An item object with a use() attribute (function) will be able to be used by characters. To create a dynamic item object, create an object that inherits basicrpg.item and add a use() function. See more in the documentation: items>item
+use

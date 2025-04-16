@@ -118,23 +118,23 @@ class character(): #Can be any character within the game. Everything from a side
         print("|Armor class: " + str(self.armor_class))
         print("|HEALTH: "+str(self.health))
         print("|~~~~~~~~~~~~~~~~~~~")
-        print()
+        print("")
 
     #World interaction
     #These are all things that a character can use to interact with the world (Ex: Picking something up (aquire) or attacking (attack))
     def printinvent(self):
-                print(f"|INVENTORY|{self.name}|")
-                if self.equiped_weapon:
-                    print("|~~~~~~~~~~~~~~~~~~~")
-                    print(f"|EQUIPED: {self.equiped_weapon.name}")
-                print("|~~~~~~~~~~~~~~~~~~~")
-                total_weight = sum(item.weight for item in self.inventory) #This adds up all of the items weights in the inventory.
-                print(f"|WEIGHT: {total_weight}/{self.max_weight}lbs")
-                print("|~~~~~~~~~~~~~~~~~~~")
-                for item in self.inventory:
-                    print(f"|{round(item.weight,2):>4}|{item.name}") #Prints weight | name. Round weight to a maximum of 2 decimal places, ensures that | will always be alligned using the :>4
-                print("|~~~~~~~~~~~~~~~~~~~")
-                print()
+        print(f"|INVENTORY|{self.name}|")
+        if self.equiped_weapon:
+            print("|~~~~~~~~~~~~~~~~~~~")
+            print(f"|EQUIPED: {self.equiped_weapon.name}")
+        print("|~~~~~~~~~~~~~~~~~~~")
+        total_weight = sum(item.weight for item in self.inventory) #This adds up all of the items weights in the inventory.
+        print(f"|WEIGHT: {total_weight}/{self.max_weight}lbs")
+        print("|~~~~~~~~~~~~~~~~~~~")
+        for item in self.inventory:
+            print(f"|{round(item.weight,2):>4}|{item.name}") #Prints weight | name. Round weight to a maximum of 2 decimal places, ensures that | will always be alligned using the :>4
+        print("|~~~~~~~~~~~~~~~~~~~")
+        print("")
     def equip_weapon(self,weapon,from_invent:bool = False): #Equip a weapon to the weapon slot. Attack will only reference an equiped weapon. IF YOU WANT TO EQUIP A WEAPON FROM THE INVENTORY, MAKE SURE YOU SET from_invent TO TRUE. This will not remove the weapon from the inventory, it simply references it in the equiped_weapon variable
         """equips a weapon. Only equiped weapons can do damage.\n
         -----
@@ -271,3 +271,8 @@ class room():
                     self.doors[choice].execute(self.entity)
             elif answer in self.action_names:
                 self.actions[answer]()
+
+class world():
+    """Inherit this class to create a world object. Use this object when paramaters are inacessible"""
+    def __init__(self,world):
+        self.world = world #This is just so we can check hasattr to confirm the object is a world object
