@@ -181,8 +181,9 @@ class character(): #Can be any character within the game. Everything from a side
             #If you are allowing the player to call aquire on whatever they want, I would reccomend using a try except block and checking for type errors, and then returning something like "Sorry, but you cannot pick that up"
     def use(self,item:items.item,from_invent:bool = False):
         if isinstance(item,items.item):
-            if hasattr(item,"use"): #Checking that the item's useable property is True
+            if hasattr(item,"use"): #Checking that the item has a use function
                 item.use(self)
+            else: print("You can't use that")
         else: print("You can't use that") #raise TypeError(f"Expected type basicrpg.item, but got type {type(item)} instead")
 class _shop():
     """item_value_pairs: {(item:basicrpg.item,name:"thing_name"):price:(item:basicrpg.item,amount:int)}\n

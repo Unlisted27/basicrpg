@@ -6,11 +6,10 @@ class world(basicrpg.world):
     def __init__(self, world):
         pass
 living_room = basicrpg.room("living room","A living room")
-living_room.set_actions()
 class emf_reader(basicrpg.item):
     def use(self,master:basicrpg.character):
         print(self.description)
-        print(master.printinvent())
+        master.printinvent()
 emf_reader1 = emf_reader("EMF reader",1,"A device for detecting ghosts")
 print(emf_reader1.name)
 
