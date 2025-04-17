@@ -3,6 +3,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    table, th, td {
+      border:1px solid black;
+    }
+  </style>
 </head>
 
 <body>
@@ -40,120 +45,147 @@
     <!-- race dropdown -->
     <details style="margin-left: 2em">
       <summary>race</summary>
+      <h4>Info:</h4>
+      <p>basicrpg.race objects are necessary for creating basicrpg.character objects.  
+      The stat modifiers of a basicrpg.race object will be directly added to the stats of a basicrpg.character object.</p>
+      <h4>Type: basicrpg.race</h4>
+      <h4>Variable attributes table</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <!--Table items-->
+        <!--race.name-->
+        <tr>
+          <td>race.name</td>
+          <td>str</td>
+          <td>The name of the race, will apear in basicrpg.character.printstats()</td>
+        </tr>
+        <!--race.strength_modifier-->
+        <tr>
+          <td>race.strength_modifier</td>
+          <td>int</td>
+          <td>The strength modifier added directly to the strength stat of a basicrpg.character</td>
+        </tr>
+        <!--race.constitution_modifier-->
+        <tr>
+          <td>race.constitution_modifier</td>
+          <td>int</td>
+          <td>The constitution modifier added directly to the constitution stat of a basicrpg.character</td>
+        </tr>
+        <!--race.intelligence_modifier-->
+        <tr>
+          <td>race.intelligence_modifier</td>
+          <td>int</td>
+          <td>The intelligence modifier added directly to the intelligence stat of a basicrpg.character</td>
+        </tr>
+        <!--race.agility_modifier-->
+        <tr>
+          <td>race.agility_modifier</td>
+          <td>int</td>
+          <td>The agility modifier added directly to the agility stat of a basicrpg.character</td>
+        </tr>
+      </table>
+    <h4>Structure:</h4>
     <pre><code class="python">race(name: str, strength_modifier: int, constitution_modifier: int, intelligence_modifier: int, agility_modifier: int)</code></pre>
+    <h4>Example:</h4>
+    <pre><code class="python">human = basicrpg.race("Human",0,0,0,0)</code></pre>
     </details> <!-- end of race dropdown -->
 
     <!-- profession dropdown -->
     <details style="margin-left: 2em">
       <summary>profession</summary>
-    <pre><code class="python">profession(name: str)
-    </code></pre>
-    </details> <!-- end of profession dropdown -->
-
+      <h4>Info:</h4>
+      <p>basicrpg.profession objects are currently useless, but are still required to create a basicrpg.character objects.</p>
+      <h4>Type: basicrpg.profession</h4>
+      <h4>Variable attributes table</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <!--Table items-->
+        <tr>
+          <td>profession.name</td>
+          <td>str</td>
+          <td>The name of the profession, will apear in basicrpg.character.printstats()</td>
+        </tr>
+      </table>
+      <h4>Structure:</h4>
+      <pre><code class="python">profession(name: str)</code></pre>
+      <h4>Example:</h4>
+      <pre><code class="python">commoner = profession("Commoner")</code></pre>
+    </details>
+    <!-- end of profession dropdown -->
+  
     <!-- character dropdown -->
     <details style="margin-left: 2em">
       <summary>character</summary>
-    <!-- start of character setup code -->
-    <pre><code class="python">character(race:race,profession:profession,name:str,initiative = 0,strength = 10,constitution = 10,intelligence = 10,agility = 10,armor_class = 4,max_health=10)</code></pre> 
-    Example
-      <pre><code class="python">commoner = profession("commoner")
-    human = race("Human", 0, 0, 0, 0)
-    player = character(human,commoner,genname())</code></pre>
-    <!-- end of character setup code -->
-
-    <!-- start of create_random dropdown -->
-    <details style="margin-left: 2em">
-      <summary>create_random()</summary> 
-      Randomizes character stats
-      <pre><code class="python">create_random(self)</code></pre>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-    human = race("Human", 0, 0, 0, 0)
-    player = character(human,commoner,genname())
-    player.create_random()</code></pre>
-    </details><!-- end of create_random dropdown -->
-
-    <!-- start of printstats dropdown -->
-    <details style="margin-left: 2em">
-      <summary>printstats()</summary> 
-      Displays character stats
-      <pre><code class="python">printstats(self)
-    </code></pre>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-    human = race("Human", 0, 0, 0, 0)
-    player = character(human,commoner,genname())
-    player.create_random()
-    player.printstats()</code></pre>
-    </details><!-- end of printstats dropdown -->
-
-    <!-- start of printinvent dropdown -->
-    <details style="margin-left: 2em">
-      <summary>printinvent()</summary> 
-      Displays character inventory
-      <pre><code class="python">printinvent(self)
-    </code></pre>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-    human = race("Human", 0, 0, 0, 0)
-    player = character(human,commoner,genname())
-    player.create_random()
-    player.printinvent()</code></pre>
-    </details><!-- end of printinvent dropdown -->
-
-    <!-- start of equip_weapon dropdown -->
-    <details style="margin-left: 2em">
-      <summary>equip_weapon(weapon:weapon,from_invent = False)</summary> 
-      Equips a weapon to a character weapon slot
-      <pre><code class="python">equip_weapon(self,weapon:weapon,from_invent = False)
-    </code></pre>
-      <p><b>-</b> If from_invent is True, a TypeError will return shall the specefied weapon not exist in the character inventory</p>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-    sword = weapon("sword", 2, "a sword", (2,6), 0)
-    human = race("Human", 0, 0, 0, 0)
-    player = character(human,commoner,genname())
-    player.create_random()
-    player.equip_weapon(sword)</code></pre>
-    </details><!-- end of equip_weapon dropdown -->
-
-    <!-- start of attack dropdown -->
-    <details style="margin-left: 2em">
-      <summary>attack(target:character)</summary>
-      Attacks a target
-      <pre><code class="python">attack(self,target:character)
-    </code></pre>
-      <p><b>-</b> Roll to hit, on hit, deal damamge to target based on equiped weapon and attack roll</p>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-
-    sword = weapon("sword", 2, "a sword", (2,6), 0)
-    human = race("Human", 0, 0, 0, 0)  
-
-    enemy = character(human,commoner,genname())
-    enemy.create_random()
-
-    player = character(human,commoner,genname())
-    player.create_random()
-    player.equip_weapon(sword)
-    player.attack(enemy)
-    </code></pre>
-    </details><!-- end of attack dropdown -->
-
-    <!-- start of aquire dropdown -->
-    <details style="margin-left: 2em">
-    <summary>aquire(target:any)</summary>
-    Places an item in the character inventory
-      <pre><code class="python">aquire(self,target:any)</code></pre>
-      <p><b>-</b> The target must have the is_pickable attribute set to True or else a TypeError is raised</p>
-      Example
-      <pre><code class="python">commoner = profession("commoner")
-    bread = food("Bread",0.2,"It's bread",2)
-    human = race("Human",0,0,0,0
-    player = character(human,commoner,genname())
-    player.create_random()
-    player.aquire(bread)</code></pre>
-    </details><!-- end of equip_weapon dropdown -->
+      <h4>Info:</h4>
+      <p>basicrpg.character objects are fundamental in any RPG game. basicrpg.character objects are coded so that they are not required to be a player, hence the name. This means that every character (player to ant) should be a character object, and thus has the same abilities (from a programming perspective) by default.</p>
+      <h4>Type: basicrpg.character</h4>
+      <h4>Variable attributes table</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <!--Table items-->
+        <tr>
+          <td>character.race</td>
+          <td>basicrpg.race</td>
+          <td>The race of the character. Will effect character's stats.</td>
+        </tr>
+        <tr>
+          <td>character.profession</td>
+          <td>basicrpg.profession</td>
+          <td>The profession of the character. Shown in basicrpg.character.printstats(). Useless as of now and effects nothing</td>
+        </tr>
+        <tr>
+          <td>character.name</td>
+          <td>str</td>
+          <td>The name of the character. Can be anything. You can use basicrpg.genname() to create a random name, but this is not necessary</td>
+        </tr>
+        <tr>
+          <td>character.initiative (DEFAULT 0)</td>
+          <td>int</td>
+          <td>Currently unused, could one day effect combat</td>
+        </tr>
+        <tr>
+          <td>character.strength (DEFAULT 10)</td>
+          <td>int</td>
+          <td>Strength stat of the character, effected by the character's race's strength_modifier</td>
+        </tr>
+        <tr>
+          <td>character.constitution (DEFAULT 10)</td>
+          <td>int</td>
+          <td>Constitution stat of the character, effected by the character's race's constitution_modifier</td>
+        </tr>
+        <tr>
+          <td>character.intelligence (DEFAULT 10)</td>
+          <td>int</td>
+          <td>Intelligence stat of the character, effected by the character's race's intelligence_modifier</td>
+        </tr>
+        <tr>
+          <td>character.agility (DEFAULT 10)</td>
+          <td>int</td>
+          <td>Agility stat of the character, effected by the character's race's agility_modifier</td>
+        </tr>
+        <tr>
+          <td>character.armor_class (DEFAULT 4)</td>
+          <td>int</td>
+          <td>Armor class stat of the character, effected by the character's race's agility_modifier</td>
+        </tr>
+        <tr>
+          <td>character.max_health (DEFAULT 10)</td>
+          <td>int</td>
+          <td>Max health stat of the character, effected by the character's race's constitution_modifier</td>
+        </tr>
+      </table>
     </details> <!-- end of character dropdown -->
   </details><!-- end of components dropdown -->
 
